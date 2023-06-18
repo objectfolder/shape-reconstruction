@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/viscam/projects/objectfolder_benchmark/benchmarks/Multi_Sensory_3D_Reconstruction/code/models/MDN/produce_sheets.py", line 38, in <module>
+    start_idx = int(remain[0])
+IndexError: list index out of range

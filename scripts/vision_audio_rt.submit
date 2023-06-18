@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+#SBATCH --job-name=rt_vision_audio
+#SBATCH --account=viscam
+#SBATCH --partition=viscam
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=32G
+#SBATCH --gres=gpu:2080ti:1
+#SBATCH --cpus-per-task=8
+#SBATCH --time 48:00:00
+#SBATCH --output=exp/logs/rt_vision_audio_4_slurm_%A.out
+#SBATCH --error=exp/logs/rt_vision_audio_4_slurm_%A.err
+#SBATCH --mail-user=douyiming@sjtu.edu.cn
+#SBATCH --mail-type=ALL
+
+
+######################
+# Begin work section #
+######################
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+python main.py --modality_list vision audio --config_location ./configs/RT.yml \
+                --batch_size 32 --num_workers 4 \
+                --epochs 10 \
+                --local_gt_points_location ../DATA_new/local_gt_points \
+                --lr 1e-4 --exp rt/vision_audio_4 --weight_decay 1e-3 \
+                --normalize --impact_num 4 --local_sample_num 512 \
+                --model ReconTransformer

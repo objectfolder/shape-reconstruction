@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#
+#SBATCH --job-name=mdn_audio
+#SBATCH --partition=viscam
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=16G
+#SBATCH --gres=gpu:2080ti:1
+#SBATCH --cpus-per-task=16
+#SBATCH --time 48:00:00
+#SBATCH --output=exp/logs/mdn_audio_slurm_%A.out
+#SBATCH --error=exp/logs/mdn_audio_slurm_%A.err
+#SBATCH --mail-user={your_email}
+#SBATCH --mail-type=ALL
+
+
+######################
+# Begin work section #
+######################
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+python main.py  --batch_size 8 --num_workers 4 --epochs 10 \
+                --model MDN  --modality_list audio --lr 1e-4 --weight_decay 1e-2 \
+                --exp mdn/audio --normalize

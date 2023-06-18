@@ -1,0 +1,4 @@
+sbatch scripts/touch_audio_mdn.submit
+sbatch scripts/vision_audio_mdn.submit
+sbatch scripts/vision_touch_mdn.submit
+sbatch scripts/vision_touch_audio_mdn.submit

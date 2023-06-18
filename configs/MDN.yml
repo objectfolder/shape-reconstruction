@@ -1,0 +1,7 @@
+pretrain:
+  audio_backbone: './exp/pretrain_resnet18/audio_backbone.pth'
+
+vision_checkpoint: "./exp/vision_mdn/bst.pth"
+touch_checkpoint: "./exp/touch_mdn/bst.pth"
+audio_checkpoint: "./exp/audio_mdn/bst.pth"
+# mesh_decoder_checkpoint:  "./exp/vision_mdn/bst.pth"

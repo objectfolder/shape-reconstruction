@@ -1,0 +1,8 @@
+pretrain:
+  # visual_backbone: './exp/rt/vision/bst.pth'
+  # tactile_backbone: './exp/rt/touch_4/bst.pth'
+  # audio_backbone: './exp/rt/audio_4/bst.pth'
+
+  visual_backbone: './exp/rt_real/vision_touch_8/bst.pth'
+  tactile_backbone: './exp/rt_real/vision_touch_8/bst.pth'
+  audio_backbone: './exp/rt_real/audio_8/bst.pth'

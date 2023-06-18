@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+#SBATCH --job-name=produce_sheets
+#SBATCH --partition=svl
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=12G
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=12
+#SBATCH --time 48:00:00
+#SBATCH --output=logs/produce_sheets_slurm_%A.out
+#SBATCH --error=logs/produce_sheets_slurm_%A.err
+#SBATCH --mail-user=douyiming@sjtu.edu.cn
+#SBATCH --mail-type=ALL
+
+
+######################
+# Begin work section #
+######################
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+python produce_sheets.py

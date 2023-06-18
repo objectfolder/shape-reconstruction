@@ -1,0 +1,6 @@
+SLURM_JOBID=5048806
+SLURM_JOB_NODELIST=viscam1
+SLURM_NNODES=1
+SLURMTMPDIR=
+working directory = /viscam/projects/objectfolder_benchmark/benchmarks/Multi_Sensory_3D_Reconstruction/code/models/MDN
+Start_idx:  6
