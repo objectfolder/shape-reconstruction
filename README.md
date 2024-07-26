@@ -4,6 +4,10 @@ Given an RGB image of an object, a sequence of tactile readings from the objectâ
 
 ## Usage
 
+#### Data Preparation
+
+The dataset used to train the baseline models can be downloaded from [here](https://www.dropbox.com/scl/fo/buy9lng0hlmk36rk0gfev/AJw2TP0KA_IfhxrQWIRsXUU?rlkey=3gps10mku9lmp4t2i9uayqqk5&st=wfur8rt3&dl=0)
+
 #### Training & Evaluation
 
 Start the training process, and test the best model on test-set after training:
